@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:14.2-alpine
+    restart: always
+    environment:
+      POSTGRES_DB: DataBase
+      POSTGRES_PASSWORD: userDataBase
+      POSTGRES_USER: user
+    ports:
+      - '5432'
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: dataBase@PasswordManager.com
+      PGADMIN_DEFAULT_PASSWORD: @data23
+    ports:
+      - '5050:80'

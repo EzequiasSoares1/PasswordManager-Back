@@ -3,7 +3,6 @@ import com.Tech.PasswordManager.model.dto.AuthenticationDTO;
 import com.Tech.PasswordManager.model.entity.User;
 import com.Tech.PasswordManager.security.TokenService;
 import jakarta.validation.Valid;
-import org.antlr.v4.runtime.Token;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -24,14 +23,15 @@ public class AuthenticationController {
         try{
             var userNamePassword = new UsernamePasswordAuthenticationToken(dto.login(),dto.password());
             var auth = authenticationManager.authenticate(userNamePassword);
-            var token = tokenService.generateToken((User) auth.getPrincipal());
-            return ResponseEntity.ok("{\"token\":\"" + token + "\"}");
+            var token = tokenService.genToken((User) auth.getPrincipal());
+            return ResponseEntity.ok(token);
         } catch (Exception e){
             System.out.println(e);
             return ResponseEntity.badRequest().body("Login or Password invalid");
         }
     }
-    @PostMapping("/isvalidtoken")
+
+    @PostMapping("/isValidToken")
     public ResponseEntity isValidToken(@RequestParam String token){
         try{
             if(tokenService.isValidToken(token) == false) {return ResponseEntity.badRequest().body("token invalid");}
@@ -42,4 +42,13 @@ public class AuthenticationController {
         }
     }
 
+    @PostMapping("/tokenRefresh")
+    public ResponseEntity tokenRefresh(@RequestParam String token){
+        try{
+             return ResponseEntity.ok(tokenService.genNewToken(token));
+        }catch (Exception e) {
+            System.out.println(e);
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 }

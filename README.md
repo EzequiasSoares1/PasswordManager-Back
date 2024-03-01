@@ -1,60 +1,59 @@
 # Password Manager - Back
 
-O Gerenciador de Senha é uma aplicação desenvolvida em Java com o framework Spring Boot, destinada a fornecer uma solução segura e eficiente para armazenamento e gerenciamento de senhas. Esta aplicação foi construída utilizando conhecimentos atualizados em Java, Spring Boot, JUnit 5, Docker, Spring Security e JWT (JSON Web Token), com foco especial em práticas de segurança, incluindo criptografia utilizando Bcrypt para gerenciamento de usuários e criptografia padrão com hash para armazenamento de senhas.
+The Password Manager is an application developed in Java with the Spring Boot framework, aimed at providing a secure and efficient solution for storing and managing passwords. This application was built using updated knowledge in Java, Spring Boot, JUnit 5, Docker, Spring Security, and JWT (JSON Web Token) and Postgress with database  with a special focus on security practices, including encryption using Bcrypt for user management and standard hash encryption for password storage.
 
-## Estrutura do Projeto
+## Project Structure
 
-O projeto segue o padrão MVC (Model-View-Controller) para organização e estruturação do código, dividido em diferentes camadas:
+The project follows the MVC (Model-View-Controller) pattern for organization and structuring of the code, divided into different layers:
 
-- **Config**: Contém as configurações do projeto, como configurações do Spring Security e JWT.
-- **Controller**: Responsável por receber as requisições HTTP e delegar para os serviços adequados.
+- **Config**: Contains project configurations, such as Spring Security and JWT configurations.
+- **Controller**: Responsible for receiving HTTP requests and delegating to the appropriate services.
 - **Model**:
-  - **DTO (Data Transfer Object)**: Objetos utilizados para transferir dados entre a camada de apresentação e a camada de serviço.
-  - **Entity**: Representa as entidades do domínio que são mapeadas para as tabelas do banco de dados.
-  - **Repositories**: Interfaces que definem operações de acesso ao banco de dados.
-  - **Service**: Contém a lógica de negócio e manipulação de dados.
-- **Security**: Contém a logica de segurança e criptografia.
+  - **DTO (Data Transfer Object)**: Objects used to transfer data between the presentation layer and the service layer.
+  - **Entity**: Represents domain entities that are mapped to database tables.
+  - **Repositories**: Interfaces defining database access operations.
+  - **Service**: Contains business logic and data manipulation.
+- **Security**: Contains security and encryption logic.
 
-## Implementação da Segurança
+## Security Implementation
 
-A segurança é uma parte fundamental do Gerenciador de Senha e foi implementada utilizando várias práticas e tecnologias:
+Security is a fundamental part of the Password Manager and has been implemented using various practices and technologies:
 
-- **Spring Security**: Utilizado para fornecer autenticação e autorização robustas para os endpoints da aplicação.
-- **JWT (JSON Web Token)**: Utilizado para autenticação baseada em token, permitindo aos usuários acessarem os endpoints de forma segura.
-- **Bcrypt**: Utilizado para criptografar as senhas dos usuários durante o processo de registro e autenticação, garantindo a segurança das informações.
-- **Hash para armazenamento de senhas**: As senhas dos usuários são armazenadas no banco de dados de forma segura, utilizando técnicas de hash para proteger contra vazamento de dados.
-- **Relacionamento do Banco de Dados**: As senhas mantêm referências aos usuários para evitar sobrecarga nos endpoints de usuário durante o processo de login e garantir a segurança dos dados.
+- **Spring Security**: Used to provide robust authentication and authorization for application endpoints.
+- **JWT (JSON Web Token)**: Used for token-based authentication, allowing users to access endpoints securely.
+- **Bcrypt**: Used to encrypt user passwords during registration and authentication processes, ensuring information security.
+- **Hash for password storage**: User passwords are securely stored in the database using hash techniques to protect against data leaks.
+- **Database Relationship**: Passwords maintain references to users to prevent overloading user endpoints during the login process and ensure data security.
 
 ## Endpoints
 
-#### AuthenticationController
+### AuthenticationController
 
-Este controlador lida com operações relacionadas à autenticação de usuários. Ele fornece endpoints para fazer login, verificar e atualizar tokens JWT.
+This controller handles operations related to user authentication. It provides endpoints for login, token verification, and token updating.
 
-#### MyPasswordController
+### MyPasswordController
 
-Este controlador é responsável por operações CRUD relacionadas às senhas dos usuários. Todos os acessos e modificações são realizados por meio de tokens JWT, garantindo que apenas o usuário autenticado possa acessar e gerenciar suas próprias senhas.
+This controller is responsible for CRUD operations related to user passwords. All accesses and modifications are performed through JWT tokens, ensuring that only the authenticated user can access and manage their own passwords.
 
-#### UserController
+### UserController
 
-O UserController gerencia operações relacionadas ao cadastro e gerenciamento de usuários. Ele oferece endpoints para registrar novos usuários e atualizar ou excluir informações de usuários existentes. 
+The UserController manages operations related to user registration and management. It provides endpoints for registering new users and updating or deleting existing user information.
 
-## Driagrama de relacionamento do Banco
+## Database Relationship Diagram
+
 ![image](https://github.com/EzequiasSoares1/PasswordManager-Back/assets/87997012/ca6342c5-13bb-475a-93c8-aecf1e140e54)
 
 
-## Instruções para Rodar a Aplicação
+## Instructions to Run the Application
 
-1. **Clonar o Repositório**: git clone https://github.com/EzequiasSoares1/PasswordManager-Back
+1. **Clone the Repository**: git clone https://github.com/EzequiasSoares1/PasswordManager-Back
 
-2. **Acessar o Diretório do Projeto**: PasswordManager-Back
+2. **Access the Project Directory**: cd  PasswordManager-Back
    
-3. **Executar o Docker Desktop**: Certifique-se de ter o Docker instalado e execute o Docker para iniciar o banco de dados
+3. **Run Docker Desktop**: Make sure you have Docker installed and running. Docker will start the database.
 
-5. **Executar a Aplicação**: Execute a aplicação Spring Boot na sua IDE ou utilize o Maven para construir e executar a aplicação a partir da linha de comando
+5. **Run the Application**: Run the Spring Boot application in your IDE or use Maven to build and run the application from the command line.
 
-6. **Testar os Endpoints**: Os endpoints estarão disponíveis em `http://localhost:8080`. Você pode usar uma ferramenta como Postman ou insomnia para testar os endpoints fornecidos pelos controladores.
-
-
+6. **Test the Endpoints**: The endpoints will be available at `http://localhost:8080`. You can use a tool like Postman or Insomnia to test the endpoints provided by the controllers.
 
 

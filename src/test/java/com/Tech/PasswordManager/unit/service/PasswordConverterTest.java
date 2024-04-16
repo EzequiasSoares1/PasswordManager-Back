@@ -3,7 +3,7 @@ import com.Tech.PasswordManager.ConfigSpringTest;
 import com.Tech.PasswordManager.model.dto.MyPasswordDTO;
 import com.Tech.PasswordManager.model.entity.MyPassword;
 import com.Tech.PasswordManager.model.entity.User;
-import com.Tech.PasswordManager.model.service.PasswordConverter;
+import com.Tech.PasswordManager.service.PasswordConverter;
 import com.Tech.PasswordManager.security.CryptPasswordService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

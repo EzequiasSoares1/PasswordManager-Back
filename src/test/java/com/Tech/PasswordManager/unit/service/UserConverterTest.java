@@ -3,7 +3,7 @@ package com.Tech.PasswordManager.unit.service;
 import com.Tech.PasswordManager.ConfigSpringTest;
 import com.Tech.PasswordManager.model.dto.UserDTO;
 import com.Tech.PasswordManager.model.entity.User;
-import com.Tech.PasswordManager.model.service.UserConverter;
+import com.Tech.PasswordManager.service.UserConverter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

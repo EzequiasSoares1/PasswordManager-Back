@@ -34,7 +34,7 @@ public class AuthenticationController {
     @PostMapping("/isValidToken")
     public ResponseEntity isValidToken(@RequestParam String token){
         try{
-            if(tokenService.isValidToken(token) == false) {return ResponseEntity.badRequest().body("token invalid");}
+            if(!tokenService.isValidToken(token)) {return ResponseEntity.badRequest().body("token invalid");}
             else{ return ResponseEntity.ok().build(); }
         }catch (Exception e) {
             System.out.println(e);

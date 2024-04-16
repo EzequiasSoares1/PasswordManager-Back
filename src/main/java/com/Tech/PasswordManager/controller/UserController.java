@@ -1,6 +1,6 @@
 package com.Tech.PasswordManager.controller;
 import com.Tech.PasswordManager.model.dto.UserDTO;
-import com.Tech.PasswordManager.model.service.UserService;
+import com.Tech.PasswordManager.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

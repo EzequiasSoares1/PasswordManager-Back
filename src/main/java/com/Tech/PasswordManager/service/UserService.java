@@ -1,4 +1,4 @@
-package com.Tech.PasswordManager.model.service;
+package com.Tech.PasswordManager.service;
 import com.Tech.PasswordManager.model.dto.UserDTO;
 import com.Tech.PasswordManager.model.entity.User;
 import com.Tech.PasswordManager.model.repository.MyPasswordRepository;

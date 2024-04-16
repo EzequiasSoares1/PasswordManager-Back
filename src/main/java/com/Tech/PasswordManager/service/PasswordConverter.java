@@ -1,11 +1,10 @@
-package com.Tech.PasswordManager.model.service;
+package com.Tech.PasswordManager.service;
 import com.Tech.PasswordManager.model.dto.MyPasswordDTO;
 import com.Tech.PasswordManager.model.entity.MyPassword;
 import com.Tech.PasswordManager.security.CryptPasswordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.security.PublicKey;
 import java.util.List;
 import java.util.stream.Collectors;
 @Component

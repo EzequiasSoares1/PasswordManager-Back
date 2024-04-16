@@ -8,6 +8,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @Testable
-@TestPropertySource(locations = "classpath:application.properties")
+@TestPropertySource(locations = "classpath:applicationTest.properties")
 public class ConfigSpringTest {
 }
